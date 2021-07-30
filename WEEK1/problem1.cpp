@@ -4,29 +4,44 @@ int main()
 {
     int t;
     cin>>t;
-    while(t){
-    int n;
-    cin>>n;
-    int a[n];
-    int i,comp=0;
-    for(i=0;i<n;i++)
-    cin>>a[i];
-    int key,t=1;
-    cin>>key;
-    for(i=0;i<n;i++)
+    while(t)
     {
-        comp++;
-        if(key==a[i])
+        int n;
+        cin>>n;
+        int a[n];
+        int i,end=n,start=0;
+        for(i=0;i<n;i++)
         {
-            t=0;
-            break;
+            cin>>a[i];
         }
-    }
-    if(t==0)
-    cout<<"present "<<comp<<endl;
-    else
-    cout<<" not present "<<comp<<endl;
-    t--;
+        int comp=1,key;
+        int count=0;
+        cin>>key;
+        bool re=false;
+        while(start<=end)
+        {
+            comp++;
+            int mid=(start+end)/2;
+            if(a[mid]==key)
+            {
+                re=true;
+                count++;
+            }
+            else if(a[mid]<key)
+            {
+                start=mid+1;
+            }
+            else
+            end=mid-1;
+
+        }
+        if(re)
+        cout<<key<<"-"<<count;
+        else
+        cout<<"not present ";
+        t--;
+
     }
     return 0;
+
 }
