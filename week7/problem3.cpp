@@ -12,7 +12,7 @@ int shortestpath(int graph[][100],int src,int dest,int k,int n)
     int res=INF;
     for(int i=0;i<n;i++)
     {
-        if(graph[src][dest] && src!=i && dest!=i)
+        if(graph[src][dest]!=INF && src!=i && dest!=i)
         {
             int rec_res=shortestpath(graph,i,dest,k-1,n);
             if(rec_res!=INF)
